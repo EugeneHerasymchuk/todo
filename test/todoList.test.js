@@ -1,18 +1,18 @@
-const {expect} = require('chai');
-const puppeteer = require('puppeteer');
+const {expect} = require('chai')
+const puppeteer = require('puppeteer')
 
-describe('sample test', function () {
+describe('First tests with puppeteer:', function () {
   // Define global variables
-  let browser;
-  let page;
+  let browser
+  let page
 
   before(async function () {
-    browser = await puppeteer.launch();
-    page = await browser.newPage();
+    browser = await puppeteer.launch()
+    page = await browser.newPage()
   })
 
   beforeEach(async function () {
-    page = await browser.newPage();
+    page = await browser.newPage()
     await page.goto('http://localhost:9000')
   })
 
@@ -20,14 +20,14 @@ describe('sample test', function () {
     await page.close()
   })
 
-  after(() => {
-    browser.close()
+  after(async function () {
+    await browser.close()
   })
 
   it('input field should exist on the page', async function () {
 
     const text = await page.evaluate(() => document.getElementById('item').placeholder)
-    expect(text).to.equal('Enter an activity..');
+    expect(text).to.equal('Enter an activity..')
   })
 
   it('should add item to the list', async function () {
@@ -40,7 +40,7 @@ describe('sample test', function () {
     await page.click('#add')
 
     // Wait for selector with items
-    await page.waitForSelector('#todo li');
+    await page.waitForSelector('#todo li')
 
     // Get textContent of the first
     const createdTask = await page.evaluate(() => document.querySelector('#todo li').textContent)
@@ -48,6 +48,6 @@ describe('sample test', function () {
     // Compare actual text with expected input
     expect(createdTask).to.equal(expectedInput)
 
-    await page.screenshot({path: 'test/screens/item.png'});
+    await page.screenshot({path: 'test/screens/item.png'})
   })
 })
