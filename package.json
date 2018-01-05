@@ -1,0 +1,30 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "A simple todo list app built in HTML, CSS and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EugeneHerasymchuk/todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EugeneHerasymchuk/todo/issues"
+  },
+  "homepage": "https://github.com/EugeneHerasymchuk/todo#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "connect": "^3.6.5",
+    "mocha": "^4.1.0",
+    "puppeteer": "^0.13.0",
+    "serve-static": "^1.13.1"
+  },
+  "devDependencies": {
+    "jest": "^22.0.4"
+  }
+}
