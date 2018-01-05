@@ -25,9 +25,10 @@ describe('First tests with puppeteer:', function () {
   })
 
   it('input field should exist on the page', async function () {
+    const expectedInput = 'Enter an activity..'
 
     const text = await page.evaluate(() => document.getElementById('item').placeholder)
-    expect(text).to.equal('Enter an activity..')
+    expect(text).to.equal(expectedInput)
   })
 
   it('should add item to the list', async function () {
